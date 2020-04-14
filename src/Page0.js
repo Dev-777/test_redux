@@ -1,24 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 
-function Page0( gexam ) {
 
-    console.log( gexam, "histerik" );
+function Page0( state ) {
+
+
 
     return (
         <div>
             <h1>Page0</h1>
         </div>
-    );
-
+    )
 }
 
+function mapStateToProps( state ) {
 
-let mapStateToProps = ( state ) => {
-    console.log( state, "kkk" );
     return {
-        state
+        state: state,
     };
-};
+}
 
 export default connect( mapStateToProps )( Page0 );

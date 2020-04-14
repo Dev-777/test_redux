@@ -2,3 +2,6 @@
 2)store.disputch({type: 'something'}) action e uxxarkum vori himman vra kpoxi state
 3)getState();
 4)reducer
+
+
+store -> {state: {…}, dispatch: ƒ}

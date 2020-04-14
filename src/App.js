@@ -1,56 +1,35 @@
 import React, { Component } from "react";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
+import { connect } from "react-redux";
 import Page0 from "./Page0";
 
 class App extends Component {
-
-    constructor( props ) {
-        super( props );
+    constructor(state) {
+        super(state);
         this.state = {
-            name: 'Karine',
-            age: 25,
-        };
-        this.reducer0 = this.reducer0.bind( this );
+            name: "Karine",
+            age: 26,
+        }
     }
 
-    reducer0() {
-        return (
-            ( state = this.state, action ) => {
-                if ( action.type === "Monika" ) {
-                    return (this.setState( { name: "You did that bro" } ));
-                }
-            });
-
-    }
-
-
-    componentDidMount() {
-
-        let store = createStore( this.reducer0() );
-        store.dispatch( { type: "Monika" } );
-        console.log( this.state, "0" );
-    }
-
-    componentDidUpdate( prevProps, prevState, snapshot ) {
-        console.log( this.state, 'update' );
-    }
 
     render() {
+state.dispatch(this.state);
         return (
-            <div>
-                <Provider store={createStore(this.reducer0())}>
-                    <Page0/>
-                </Provider>
-
-
-            </div>
+            <h1>
+                <Page0/>
+            </h1>
         );
-
     }
+
 
 
 }
 
+function mapStateToProps( state ) {
 
-export default App;
+    return {
+        state: state,
+    };
+}
+
+export default connect( mapStateToProps )( App );
