@@ -1,0 +1,1 @@
+export let ars = ()=>{{type:"Arsen"}};

@@ -1,35 +1,33 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { initialState } from "./initialState";
+import {store} from "./Store";
+import { Provider } from "react-redux";
 import Page0 from "./Page0";
 
 class App extends Component {
-    constructor(state) {
-        super(state);
-        this.state = {
-            name: "Karine",
-            age: 26,
-        }
+    constructor( props ) {
+        super( props );
+
+
+    }
+
+    componentDidMount() {
+
+        console.log( "componentDidMount" , initialState.name);
     }
 
 
     render() {
-state.dispatch(this.state);
         return (
-            <h1>
-                <Page0/>
-            </h1>
+            <div>
+                <Provider store={store}>
+                    <Page0/>
+                </Provider>
+
+            </div>
         );
     }
 
-
-
 }
 
-function mapStateToProps( state ) {
-
-    return {
-        state: state,
-    };
-}
-
-export default connect( mapStateToProps )( App );
+export default App;

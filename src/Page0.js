@@ -8,7 +8,7 @@ function Page0( state ) {
 
     return (
         <div>
-            <h1>Page0</h1>
+            <h1>{ state.state.name }</h1>
         </div>
     )
 }
